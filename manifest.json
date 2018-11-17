@@ -1,0 +1,20 @@
+{
+    "name": "Cambride Dictionary",
+    "version": "1.0",
+    "description": "Quick Lookup From Cambridge",
+    "permissions": ["storage", "contextMenus"],
+    "background": {
+      "scripts": ["popup.js"],
+      "persistent": false
+    },
+    "commands": {
+       	"toggle-feature-foo": {
+            "suggested_key": {
+              	"default": "Ctrl+Shift+O",
+              	"mac": "Ctrl+Shift+O"
+            },
+            "description": "Open popup"
+        }
+    },
+    "manifest_version": 2
+}
