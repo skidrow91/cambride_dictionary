@@ -1,19 +1,36 @@
 {
-    "name": "Cambride Dictionary",
-    "version": "1.0",
-    "description": "Quick Lookup From Cambridge",
+    "name": "Quick Lookup Dictionary",
+    "version": "2.0",
+    "description": "Quick Lookup A Word With Dictionaries",
     "permissions": ["storage", "contextMenus"],
     "background": {
       "scripts": ["popup.js"],
       "persistent": false
     },
     "commands": {
-       	"toggle-feature-foo": {
+       	"open-cambridge": {
             "suggested_key": {
-              	"default": "Ctrl+Shift+O",
-              	"mac": "Ctrl+Shift+O"
+              	"default": "Ctrl+Shift+A"
             },
-            "description": "Open popup"
+            "description": "Lookup Cambridge"
+        },
+        "open-merriam": {
+            "suggested_key": {
+              	"default": "Ctrl+Shift+E"
+            },
+            "description": "Lookup Merriam Webster"
+        },
+        "open-collins": {
+            "suggested_key": {
+              	"default": "Ctrl+Shift+I"
+            },
+            "description": "Lookup Collins"
+        },
+        "open-longman": {
+            "suggested_key": {
+              	"default": "Ctrl+Shift+L"
+            },
+            "description": "Lookup Longman"
         }
     },
     "manifest_version": 2
