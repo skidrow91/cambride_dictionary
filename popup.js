@@ -31,6 +31,9 @@ var longmanItem = {
 	"contexts": ["selection"]
 };
 
+var arr = [];
+const KEY = 'dictionary_list';
+
 chrome.contextMenus.removeAll(function(){
 	chrome.contextMenus.create(mainMenu);
 	chrome.contextMenus.create(cambridgeItem);
@@ -42,6 +45,19 @@ chrome.contextMenus.removeAll(function(){
 chrome.contextMenus.onClicked.addListener(function (clickData){
 	if (clickData.menuItemId == 'lookupCambridge' && clickData.selectionText) {
 		var myWindow = window.open("https://dictionary.cambridge.org/dictionary/english/"+clickData.selectionText, "", "width=500,height=500");
+		var isExist = 0;
+		for (var i =0; i < arr.length; i++) {
+			if (arr[i].word === clickData.selectionText) {
+				arr[i].count = arr[i].count + 1;
+				isExist = 1;
+			}
+		}
+		if (!isExist) {
+			arr.push({'word': clickData.selectionText, 'count': 1});
+		}
+		var obj = {};
+		obj[KEY] = arr;
+		chrome.storage.local.set(obj, function(){});
 	}
 	if (clickData.menuItemId == 'lookupCollins' && clickData.selectionText) {
 		var myWindow = window.open("https://www.collinsdictionary.com/dictionary/english/"+clickData.selectionText, "", "width=500,height=500");

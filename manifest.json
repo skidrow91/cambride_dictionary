@@ -2,6 +2,10 @@
     "name": "Quick Lookup Dictionary",
     "version": "2.0",
     "description": "Quick Lookup A Word With Dictionaries",
+    "browser_action": {
+        "default_icon": "dictionary.png",
+        "default_popup": "list.html"
+    },
     "permissions": ["storage", "contextMenus"],
     "background": {
       "scripts": ["popup.js"],
@@ -33,5 +37,6 @@
             "description": "Lookup Longman"
         }
     },
+    "content_security_policy": "script-src 'self' ; object-src 'self'",
     "manifest_version": 2
 }
