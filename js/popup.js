@@ -44,7 +44,7 @@ chrome.contextMenus.removeAll(function(){
 
 chrome.contextMenus.onClicked.addListener(function (clickData){
 	if (clickData.menuItemId == 'lookupCambridge' && clickData.selectionText) {
-		var myWindow = window.open("https://dictionary.cambridge.org/dictionary/english/"+clickData.selectionText, "", "width=500,height=500");
+		window.open("https://dictionary.cambridge.org/dictionary/english/"+clickData.selectionText, "", "width=500,height=500");
 		var isExist = 0;
 		for (var i =0; i < arr.length; i++) {
 			if (arr[i].word === clickData.selectionText) {
@@ -60,13 +60,13 @@ chrome.contextMenus.onClicked.addListener(function (clickData){
 		chrome.storage.local.set(obj, function(){});
 	}
 	if (clickData.menuItemId == 'lookupCollins' && clickData.selectionText) {
-		var myWindow = window.open("https://www.collinsdictionary.com/dictionary/english/"+clickData.selectionText, "", "width=500,height=500");
+		window.open("https://www.collinsdictionary.com/dictionary/english/"+clickData.selectionText, "", "width=500,height=500");
 	}
 	if (clickData.menuItemId == 'lookupMerriamWebster' && clickData.selectionText) {
-		var myWindow = window.open("https://www.merriam-webster.com/dictionary/"+clickData.selectionText, "", "width=500,height=500");
+		window.open("https://www.merriam-webster.com/dictionary/"+clickData.selectionText, "", "width=500,height=500");
 	}
 	if (clickData.menuItemId == 'lookupLongman' && clickData.selectionText) {
-		var myWindow = window.open("https://www.ldoceonline.com/dictionary/"+clickData.selectionText, "", "width=500,height=500");
+		window.open("https://www.ldoceonline.com/dictionary/"+clickData.selectionText, "", "width=500,height=500");
 	}
 });
 

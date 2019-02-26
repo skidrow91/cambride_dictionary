@@ -6,7 +6,7 @@
         "default_icon": "./img/dictionary.png",
         "default_popup": "list.html"
     },
-    "permissions": ["storage", "contextMenus"],
+    "permissions": ["storage", "contextMenus", "unlimitedStorage"],
     "background": {
       "scripts": ["./js/popup.js"],
       "persistent": false
