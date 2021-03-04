@@ -3,6 +3,12 @@ var mainMenu = {
 	'title': "Lookup Dictionary",
 	"contexts": ["selection"]
 };
+var oxfordItem = {
+	'id': "lookupOxford",
+	'title': "Lookup Oxford",
+	'parentId': "lookupDictionary",
+	"contexts": ["selection"]
+};
 var cambridgeItem = {
 	'id': "lookupCambridge",
 	'title': "Lookup Cambridge",
@@ -24,25 +30,29 @@ var merriamItem = {
 	"contexts": ["selection"]
 };
 
-var longmanItem = {
-	'id': "lookupLongman",
-	'title': "Lookup Longman",
-	'parentId': "lookupDictionary",
-	"contexts": ["selection"]
-};
+// var longmanItem = {
+// 	'id': "lookupLongman",
+// 	'title': "Lookup Longman",
+// 	'parentId': "lookupDictionary",
+// 	"contexts": ["selection"]
+// };
 
 var arr = [];
 const KEY = 'dictionary_list';
 
 chrome.contextMenus.removeAll(function(){
 	chrome.contextMenus.create(mainMenu);
+	chrome.contextMenus.create(oxfordItem);
 	chrome.contextMenus.create(cambridgeItem);
 	chrome.contextMenus.create(collinsItem);
 	chrome.contextMenus.create(merriamItem);
-	chrome.contextMenus.create(longmanItem);
+	// chrome.contextMenus.create(longmanItem);
 });
 
 chrome.contextMenus.onClicked.addListener(function (clickData){
+	if (clickData.menuItemId == 'lookupOxford' && clickData.selectionText) {
+		window.open("https://www.oxfordlearnersdictionaries.com/definition/english/"+clickData.selectionText, "", "width=500,height=500");
+	}
 	if (clickData.menuItemId == 'lookupCambridge' && clickData.selectionText) {
 		window.open("https://dictionary.cambridge.org/dictionary/english/"+clickData.selectionText, "", "width=500,height=500");
 		var isExist = 0;
@@ -65,9 +75,9 @@ chrome.contextMenus.onClicked.addListener(function (clickData){
 	if (clickData.menuItemId == 'lookupMerriamWebster' && clickData.selectionText) {
 		window.open("https://www.merriam-webster.com/dictionary/"+clickData.selectionText, "", "width=500,height=500");
 	}
-	if (clickData.menuItemId == 'lookupLongman' && clickData.selectionText) {
-		window.open("https://www.ldoceonline.com/dictionary/"+clickData.selectionText, "", "width=500,height=500");
-	}
+	// if (clickData.menuItemId == 'lookupLongman' && clickData.selectionText) {
+	// 	window.open("https://www.ldoceonline.com/dictionary/"+clickData.selectionText, "", "width=500,height=500");
+	// }
 });
 
 // chrome.commands.onCommand.addListener(function(command) {
