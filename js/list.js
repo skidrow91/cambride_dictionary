@@ -11,6 +11,7 @@ function deleteAll() {
     var elm = document.getElementsByClassName('ul--list')[0];
     elm.innerHtml = "";
     chrome.storage.local.remove(KEY);
+    window.location.href="list.html";
 }
 
 function loadEvent() {
